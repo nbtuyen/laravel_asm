@@ -18,7 +18,7 @@ class Kind_of_roomController extends Controller
     public function index()
     {
         $opj = new Kind_of_room();
-        $this->v['list_kind_of_room'] = $opj->loadList();
+        $this->v['list_kind_of_room'] = $opj->loadListKind();
         return view("admin/kind_of_room.index", $this->v);
     }
     public function add(Kind_of_roomRequest $request)

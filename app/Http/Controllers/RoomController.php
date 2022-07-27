@@ -19,7 +19,7 @@ class RoomController extends Controller
     {
         $opj = new Room();
         $this->v['list_room'] = $opj->loadList();
-        return view("client.room", $this->v);
+        return view("client.room", $this->v,);
     }
     public function index1()
     {
@@ -30,7 +30,7 @@ class RoomController extends Controller
     public function add(Request $request)
     {
         $obj = new Kind_of_room();
-        $this->v['list_kind_of_room'] = $obj->loadList();
+        $this->v['list_kind_of_room'] = $obj->loadListKind();
         $method_route = 'Room_add';
         if ($request->isMethod('post')) {
             $param = [];

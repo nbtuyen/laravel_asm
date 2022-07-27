@@ -20,7 +20,7 @@ class Kind_of_room extends Model
     //     $lists = $query->get();
     //     return $lists;
     // }
-    public function loadList($param = [])
+    public function loadListkind($param = [])
     {
         $query = DB::table($this->table)
             ->select($this->fillable);
