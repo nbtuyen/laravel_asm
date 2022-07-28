@@ -6,11 +6,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Danh Sách Loại Phòng</h1>
+                    <h1 class="m-0">Danh Sách Phòng</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="">/ Loại Phòng</li>
+                        <li class=""></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -23,7 +23,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Danh Sách Loại phòng</h3>
+                            <h3 class="card-title">Danh Sách phòng</h3>
                         </div>
                         <div class="card-body">
                             <table class="table tabl-stripped">
@@ -53,7 +53,7 @@
                                 <td>{{$item->updated_at}}</td>
                                 
                                 <td>
-                                    <a href="" class="btn btn-sm btn-info">
+                                    <a href="{{route('room_detail', ['id' => $item->id])}}" class="btn btn-sm btn-info">
                                         <i class="fas fa-edit"></i>
                                     </a>
 

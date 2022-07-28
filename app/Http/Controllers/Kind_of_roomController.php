@@ -6,7 +6,10 @@ use App\Models\Kind_of_room;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\Kind_of_roomRequest;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+
+use Illuminate\Http\Request;
 
 class Kind_of_roomController extends Controller
 {
@@ -42,11 +45,31 @@ class Kind_of_roomController extends Controller
         }
         return view("admin/Kind_of_room.add", $this->v);
     }
-    public function edit($id)
+    public function detail($id)
     {
-        $tests = new Kind_of_room();
-        $objItem = $tests->loadOne($id);
+        $objKind = new Kind_of_room();
+        $objItem = $objKind->loadOne($id);
         $this->v['objItem'] = $objItem;
         return view("admin/Kind_of_room.edit", $this->v);
+    }
+    public function update($id, Request $request)
+    {
+        $method_route = 'kind_of_room_detail';
+        $params = [];
+        $params['cols'] = $request->post();
+        unset($params['cols']['_token']);
+        $objKind = new Kind_of_room();
+        $objItem = $objKind->loadOne($id);
+        $params['cols']['id'] = $id;
+        $res = $objKind->SaveUpdate($params);
+        if ($res == null) {
+            return redirect()->route($method_route, ['id' => $id]);
+        } else if ($res == 1) {
+            Session::flash('success', 'Cập nhật bản ghi' . $objItem->id . 'thành công');
+            return redirect()->route($method_route, ['id' => $id]);
+        } else {
+            Session::flash('error', 'lỗi cập nhật abnr ghi' . $objItem->id);
+            return redirect()->route($method_route, ['id' => $id]);
+        }
     }
 }

@@ -41,7 +41,7 @@
 									<div class="room-box-in">
 										<h5 class="">{{$item->name}}</h5>
 										<p class="mt-3">{{$item->description}}</p>
-										<a class="mt-1 btn btn-primary" href="rooms-gallery.html"> Đặt Ngay {{$item->price}}</a>
+										<a class="mt-1 btn btn-primary" href="{{route('room_details', ['id' => $item->id])}}"> Đặt Ngay {{$item->price}}</a>
 										<div class="room-icons mt-4 pt-4">
 											<img src="img/5.svg" alt="">
 											<img src="img/2.svg" alt="">
