@@ -27,6 +27,13 @@ class Room extends Model
         $lists = $query->paginate(10);
         return $lists;
     }
+    public function loadList1($param = [])
+    {
+        $query = DB::table($this->table)
+            ->select($this->fillable);
+        $lists = $query->paginate(6);
+        return $lists;
+    }
     public function saveNew($param)
     {
         $data = array_merge(

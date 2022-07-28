@@ -18,7 +18,7 @@ class RoomController extends Controller
     public function index()
     {
         $opj = new Room();
-        $this->v['list_room'] = $opj->loadList();
+        $this->v['list_room'] = $opj->loadList1();
         return view("client.room", $this->v,);
     }
     public function index1()
