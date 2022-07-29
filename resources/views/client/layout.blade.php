@@ -146,7 +146,7 @@
                     <a href="{{route('Blog')}}">Bài Viết</a>
                 </li>
                 <li>
-                    <a href="{{route('Contact')}}">Liên Hệ</a>
+                    <a href="{{route('contact')}}">Liên Hệ</a>
                 </li>
                 <li>
                     <a href="search.html"><span>book now</span></a>

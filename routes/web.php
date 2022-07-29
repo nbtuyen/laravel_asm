@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('Home');
 Route::get('/room', 'RoomController@index')->name('Kind_of_room');
 Route::get('blog', 'BlogController@index')->name('Blog');
-Route::get('contact', 'ContactController@index')->name('Contact');
+
 Route::get('about', 'AboutController@index')->name('About');
 Route::get('/room_detail/{id}', 'RoomController@roomDetail')->name('room_details');
 Route::post('/booking', 'List_bookingController@add')->name('booking');
-
+Route::match(['get', 'post'], 'contact', 'ContactController@add')->name('contact');
 //admin
 Route::get('/admin', 'AdminController@index')->name('admin');
 
