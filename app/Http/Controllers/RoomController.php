@@ -40,7 +40,7 @@ class RoomController extends Controller
     {
         $obj = new Kind_of_room();
         $this->v['list_kind_of_room'] = $obj->loadListKind();
-        $method_route = 'Room_add';
+        $method_route = 'room_add';
         if ($request->isMethod('post')) {
             $param = [];
             $param['cols'] = $request->post();

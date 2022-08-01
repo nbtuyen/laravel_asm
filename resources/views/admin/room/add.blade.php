@@ -92,6 +92,8 @@
                                         <label for="">Mô Tả<span class="text-danger">(*)</span></label>
                                         <input type="text" name="description" class="form-control" id="name" value="@isset($request['description']){{ $request['description'] }}@endisset">
                                     </div>
+                                    <input type="hidden" value="1" name="room_service">
+                                    <input type="hidden" value="1" name="features">
                                     <br>
                                     <?php //Hiển thị thông báo thành công?>
                                         @if ( Session::has('success') )

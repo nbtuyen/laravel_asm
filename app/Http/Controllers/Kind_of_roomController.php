@@ -27,7 +27,7 @@ class Kind_of_roomController extends Controller
     public function add(Kind_of_roomRequest $request)
     {
 
-        $method_route = 'Kind_of_room_add';
+        $method_route = 'kind_of_room_add';
         if ($request->isMethod('post')) {
             $param = [];
             $param['cols'] = $request->post();
@@ -36,7 +36,8 @@ class Kind_of_roomController extends Controller
             $res = $modelTest->saveNew($param);
             if ($res = null) {
                 return redirect()->route($method_route);
-            } elseif ($res > 0) {
+            }
+            if ($res > 1) {
                 Session::flash('success', 'Them moi thanh cong');
             } else {
                 Session::flash('error', 'Loi them moi nguoi dung');

@@ -111,6 +111,8 @@
                                             <label class="form-check-label" for="show_menu">Hiển thị menu</label>
                                         </div>
                                     </div>
+                                    <input type="hidden" name="created_at">
+                                    <input type="hidden" name="updated_at">
                                     <br>
                                     <div class="">
                                         <a href="" class="btn btn-sm btn-danger">Hủy</a>
