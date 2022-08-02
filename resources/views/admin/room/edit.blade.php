@@ -90,7 +90,7 @@
                                     <br>
                                     <div class="form-group">
                                         <label for="">Mô Tả<span class="text-danger">(*)</span></label>
-                                        <input type="text" name="description" class="form-control" id="name" value="{{$objItem->description}}">
+                                        <input type="text" name="discription" class="form-control" id="name" value="{{$objItem->discription}}">
                                     </div>
                                     <br>
                                     <?php //Hiển thị thông báo thành công?>
