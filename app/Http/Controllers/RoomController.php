@@ -41,13 +41,17 @@ class RoomController extends Controller
         $obj = new Kind_of_room();
         $this->v['list_kind_of_room'] = $obj->loadListKind();
         $method_route = 'room_add';
+
         if ($request->isMethod('post')) {
             $param = [];
             $param['cols'] = $request->post();
             unset($param['cols']['_token']);
+            if ($request->hasFile('image') && $request->file('image')->isValid()) {
+                $param['cols']['image'] = $this->uploadFile($request->file('image'));
+            }
             $modelTest = new Room();
             $res = $modelTest->saveNew($param);
-            if ($res = null) {
+            if ($res == null) {
                 return redirect()->route($method_route);
             } elseif ($res > 0) {
                 Session::flash('success', 'Them moi thanh cong');
@@ -87,5 +91,10 @@ class RoomController extends Controller
             Session::flash('error', 'lỗi cập nhật abnr ghi' . $objItem->id);
             return redirect()->route($method_route, ['id' => $id]);
         }
+    }
+    public function uploadFile($file)
+    {
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        return $file->storeAs('cmnd', $fileName, 'public');
     }
 }
