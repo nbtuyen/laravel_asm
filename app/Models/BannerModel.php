@@ -7,40 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
-class Room extends Model
+class BannerModel extends Model
 {
     use HasFactory;
-    protected $table = "room";
-    protected $fillable = ['id', 'name', 'price', 'image', 'status', 'description', 'features', 'created_at', 'updated_at'];
-
-    // public function loadList($param = [])
-    // {
-    //     $query = DB::table($this->table)
-    //         ->select($this->fillable)
-    //         ->where('id', '>', 2);
-
-    //     $lists = $query->get();
-    //     return $lists;
-    // }
+    protected $table = "banners";
+    protected $fillable = ['id', 'name', 'image', 'status','created_at', 'updated_at'];
     public function loadList($param = [])
     {
         $query = DB::table($this->table)
             ->select($this->fillable);
         $lists = $query->paginate(10);
-        return $lists;
-    }
-    public function roomDetail($id)
-    {
-        $query = DB::table($this->table)
-            ->where('id', '=', $id);
-        $lists = $query->first();
-        return $lists;
-    }
-    public function loadList1($param = [])
-    {
-        $query = DB::table($this->table)
-            ->select($this->fillable);
-        $lists = $query->paginate(6);
         return $lists;
     }
     public function saveNew($param)
@@ -51,15 +27,13 @@ class Room extends Model
         $res = DB::table($this->table)->insertGetId($data);
         return $res;
     }
-    public function loadOne($id, $params = null)
-    {
+    public function loadOne($id,$params = null){
         $query = DB::table($this->table)
-            ->where('id', '=', $id);
+            ->where('id','=',$id);
         $obj = $query->first();
         return $obj;
     }
-    public function saveUpdate($params)
-    {
+    public function saveUpdate($params){
         if (empty($params['cols']['id'])) {
             Session::flash('error', 'Không xác định bản ghi cập nhật');
             return null;
@@ -71,6 +45,7 @@ class Room extends Model
                 $dataUpdate[$colName] = (strlen($val) == 0) ? null : $val;
             }
         }
+//        dd($params['cols']);
         $res = DB::table($this->table)
             ->where('id', $params['cols']['id'])
             ->update($dataUpdate);

@@ -39,13 +39,18 @@ class RoomController extends Controller
     }
     public function add(Request $request)
     {
+        
         $obj = new Kind_of_room();
-        $this->v['list_kind_of_room'] = $obj->loadListKind();
+        $this->v['list_kind_of_room'] = $obj->loadList();
         $method_route = 'room_add';
         if ($request->isMethod('post')) {
             $param = [];
             $param['cols'] = $request->post();
             unset($param['cols']['_token']);
+            //dd($request->file('image')->isValid());
+            if($request->hasFile('image') && $request->file('image')->isValid()){
+                $param['cols']['image'] = $this->uploadFile($request->file('image'));
+            }
             $modelTest = new Room();
             $res = $modelTest->saveNew($param);
             if ($res = null) {
@@ -59,6 +64,11 @@ class RoomController extends Controller
         }
         return view("admin/room.add", $this->v);
     }
+
+    public function uploadFile($file){
+        $fileName = time().'_'.$file->getClientOriginalName();
+        return $file->storeAs('image',$fileName,'public');
+
     public function detail($id)
     {
         $obj = new Kind_of_room();
