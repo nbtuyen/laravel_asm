@@ -11,6 +11,7 @@ class List_booking extends Model
     use HasFactory;
     protected $table = "list_booking";
     protected $fillable = ['id', 'id_user', 'checkin_date', 'checkout_date', 'id_service', 'created_at', 'updated_at'];
+
     public function saveNew($param = [])
     {
         $data = array_merge(
@@ -19,6 +20,7 @@ class List_booking extends Model
         $res = DB::table($this->table)->insertGetId($data);
         return $res;
     }
+
     public function loadList($id_user)
     {
         $query = DB::table($this->table)

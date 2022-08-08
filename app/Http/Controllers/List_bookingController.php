@@ -16,6 +16,7 @@ class List_bookingController extends Controller
     {
         $this->v = [];
     }
+
     public function booked($id_user)
     {
         $opj = new Room();

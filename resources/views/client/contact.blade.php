@@ -58,9 +58,19 @@
 				<div class="section clearfix"></div>
 				<form action="" method="post" >
 					@csrf
+
 					<input name="name" class="name" type="text" placeholder="Your Name: *" autocomplete="off" value="@isset($request['name']){{ $request['name'] }}@endisset"/ >
 					<input name="email" class="email" type="text"  placeholder="E-Mail: *" autocomplete="off" value="@isset($request['email']){{ $request['email'] }}@endisset"/>
 					<textarea name="messages" class="mess" placeholder="Tell Us Everything" value="@isset($request['messages']){{ $request['messages'] }}@endisset"></textarea>
+
+					<input name="name" type="text" placeholder="Your Name: *" autocomplete="off" value="@isset($request['name']){{ $request['name'] }}@endisset"/ >
+
+
+					<input name="email" type="text"  placeholder="E-Mail: *" autocomplete="off" value="@isset($request['email']){{ $request['email'] }}@endisset"/>
+
+
+					<textarea name="messages" placeholder="Tell Us Everything" value="@isset($request['messages']){{ $request['messages'] }}@endisset"></textarea>
+
 
 				<div class="section clearfix"></div>
 				<div class="section clearfix"></div>

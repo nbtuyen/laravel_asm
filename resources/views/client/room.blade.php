@@ -61,16 +61,27 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
 									</div>
+
 									<img src="{{asset('img/home3.jpg')}}" alt="">
+
+									<img id="mat_truoc_preview"src="{{ $item->image2?''.Storage::url($item->image2):'http://placehold.it/100x100' }}"alt="your image"style="max-width: 200px; height:100px; margin-bottom: 10px;" class="img-responsive"/>
+
 									<div class="room-box-in">
 										<h5 class="">{{$item->name}}</h5>
 										<p class="mt-3" >{{$item->discription}}</p>
 										<a class="mt-1 btn btn-primary" href="{{route('room_details', ['id' => $item->id])}}"> Đặt Ngay {{$item->price}}</a>
 										<div class="room-icons mt-4 pt-4">
+
 											<img src="https://ivang-design.com/thalia/img/5.svg" alt="">
 											<img src="https://ivang-design.com/thalia/img/2.svg" alt="">
 											<img src="https://ivang-design.com/thalia/img/3.svg" alt="">
 											<a href="{{route('room_details', ['id' => $item->id])}}">Chi Tiết</a>
+
+											<img src="img/5.svg" alt="">
+											<img src="img/2.svg" alt="">
+											<img src="img/3.svg" alt="">
+											<a href="rooms-gallery.html">Chi Tiết</a>
+
 										</div>
 									</div>
 								</div>
@@ -101,10 +112,61 @@
 										</div>
 									</div>									
 								</div>
+
 								<div class="col-12 pt-4">
 										<input type="submit" class="booking-button" value="Lọc">
 										{{-- <a class="booking-button" href="searc">book now</a> --}}
 									</div>
+
+								<div class="col-12 col-md-6 col-lg-12 pt-5">
+									<h6 class="color-white mb-3">Services:</h6>
+									<ul class="list">
+										{{-- @foreach ($list_kind_of_room -> $item)
+										<li class="list__item">
+											<label class="label--checkbox">
+												{{$item->name}}
+											</label>
+										</li>
+										@endforeach --}}
+	
+									</ul>									
+								</div>
+								<div class="col-12 col-md-6 col-lg-12 pt-5">
+									<h6 class="color-white mb-3">Extra services:</h6>
+									<ul class="list">
+										<li class="list__item">
+											<label class="label--checkbox">
+												<input type="checkbox" class="checkbox">
+												breakfast
+											</label>
+										</li>
+										<li class="list__item">
+											<label class="label--checkbox">
+												<input type="checkbox" class="checkbox">
+												swimming pool
+											</label>
+										</li>
+										<li class="list__item">
+											<label class="label--checkbox">
+												<input type="checkbox" class="checkbox">
+												car rental
+											</label>
+										</li>
+										<li class="list__item">
+											<label class="label--checkbox">
+												<input type="checkbox" class="checkbox">
+												sea view
+											</label>
+										</li>
+										<li class="list__item">
+											<label class="label--checkbox">
+												<input type="checkbox" class="checkbox">
+												laundry
+											</label>
+										</li>
+									</ul>									
+								</div>
+
 							</div>
 						</div>
 					</div>
