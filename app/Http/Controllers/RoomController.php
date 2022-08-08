@@ -19,8 +19,6 @@ class RoomController extends Controller
     }
     public function index()
     {
-        $opj = new Kind_of_room();
-        $this->v['list_kind'] = $opj->loadListkind();
         $opj = new Room();
         $this->v['list_room'] = $opj->loadList1();
         return view("client.room", $this->v,);
@@ -30,15 +28,6 @@ class RoomController extends Controller
         $opj = new Room();
         $this->v['list_room'] = $opj->loadList();
         return view("admin/room.index", $this->v);
-    }
-
-    public function roombycate($id_kind_of_room)
-    {
-        $opj = new Kind_of_room();
-        $this->v['list_kind'] = $opj->loadListkind();
-        $opj = new Room();
-        $this->v['list_room'] = $opj->loadListOfCate($id_kind_of_room);
-        return view("client.roombycate", $this->v);
     }
     public function roomDetail($id)
     {
@@ -89,7 +78,6 @@ class RoomController extends Controller
         $params = [];
         $params['cols'] = $request->post();
         unset($params['cols']['_token']);
-
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $params['cols']['image'] = $this->uploadFile($request->file('image'));
         }
@@ -125,7 +113,7 @@ class RoomController extends Controller
         $this->v['room'] = $obj->loadOne($id);
         $obj = new Service();
         $this->v['list_service'] = $obj->loadList();
-        $method_route = 'Home';
+        $method_route = 'booking';
         if ($request->isMethod('post')) {
             $param = [];
             $param['cols'] = $request->post();

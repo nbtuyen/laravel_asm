@@ -34,9 +34,10 @@
                                     <th>Ảnh Phụ</th>
                                     <th>Giá</th>
                                     <th>Mô Tả</th>
-                                    <th>Ngày Tạo</th>
-                                    <th>Ngày Sửa</th>
-
+                                    {{-- <th>Đặc Trưng</th>
+                                    <th>Trạng Thái</th> --}}
+                                    <!-- <th>Ngày Tạo</th>
+                                    <th>Ngày Sửa</th> -->
                                     <th>
                                         <a href="{{route('room_add')}}" class="btn btn-sm btn-success">Tạo mới</a>
                                     </th>
@@ -53,17 +54,11 @@
                                 <img id="mat_truoc_preview"src="{{ $item->image3?''.Storage::url($item->image3):'http://placehold.it/100x100' }}"alt="your image"style="max-width: 200px; height:100px; margin-bottom: 10px;" class="img-responsive"/>
                                 <img id="mat_truoc_preview"src="{{ $item->image4?''.Storage::url($item->image4):'http://placehold.it/100x100' }}"alt="your image"style="max-width: 200px; height:100px; margin-bottom: 10px;" class="img-responsive"/></td>
                                 <td>{{$item->price}}</td>
-
-                                <td>{{$item->status == 1 ? "Hiển Thị" : "Ẩn" }}</td>
-                                <td>{{$item->created_at}}</td>
-                                <td>{{$item->updated_at}}</td>
-
                                 <td style="overflow: hidden;text-overflow: ellipsis; width:10%">{{$item->discription}}</td>
                                 <!-- <td style="overflow: hidden;text-overflow: ellipsis; width:10%">{{$item->features}}</td>
                                 <td>{{$item->status == 1 ? "Hiển Thị" : "Ẩn" }}</td> -->
                                 <!-- <td>{{$item->created_at}}</td>
                                 <td>{{$item->updated_at}}</td> -->
-
                                 
                                 <td>
                                     <a href="{{route('room_detail', ['id' => $item->id])}}" class="btn btn-sm btn-info">

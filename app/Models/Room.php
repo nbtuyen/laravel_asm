@@ -11,8 +11,7 @@ class Room extends Model
 {
     use HasFactory;
     protected $table = "room";
-
-    protected $fillable = ['id', 'name', 'image', 'image1', 'image2', 'image3', 'image4', 'price', 'status', 'discription', 'features', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'name', 'image', 'image1', 'image2', 'image3', 'image4' ,'price', 'status', 'discription', 'features', 'created_at', 'updated_at'];
     // public function loadList($param = [])
     // {
     //     $query = DB::table($this->table)
@@ -29,22 +28,6 @@ class Room extends Model
         $lists = $query->paginate(10);
         return $lists;
     }
-
-    public function loadListTop4($param = [])
-    {
-        $query = DB::table($this->table)
-            ->select($this->fillable);
-        $lists = $query->paginate(4);
-        return $lists;
-    }
-    public function loadListOfCate($id_kind_of_room)
-    {
-        $query = DB::table($this->table)
-            ->where('id_kind_of_room', '=', $id_kind_of_room);
-        $lists = $query->paginate(10);
-        return $lists;
-    }
-
     public function roomDetail($id)
     {
         $query = DB::table($this->table)

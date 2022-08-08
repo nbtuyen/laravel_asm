@@ -1,7 +1,3 @@
-@php
-    $objUser = \Illuminate\Support\Facades\Auth::user();
-@endphp
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]>
@@ -14,7 +10,7 @@
     <!-- Basic Page Needs
 	================================================== -->
     <meta charset="utf-8">
-    <title>SƠN PÉO</title>
+    <title>Thalia</title>
     <meta name="description" content="Professional Creative Template" />
     <meta name="author" content="IG Design">
     <meta name="keywords" content="ig design, website, design, html5, css3, jquery, creative, clean, animated, portfolio, blog, one-page, multi-page, corporate, business," />
@@ -91,29 +87,18 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6 px-0 px-md-3 pl-1 py-3">
-                        <span class="call-top">ALO</span> <a href="#" class="call-top">0123456789</a>
+                        <span class="call-top">call us:</span> <a href="#" class="call-top">(381) 60 422 4256</a>
                     </div>
                     <div class="col-6 px-0 px-md-3 py-3 text-right">
+                        <a href="#" class="social-top">fb</a>
+                        <a href="#" class="social-top">tw</a>
                         <div class="lang-wrap" style="text-align: center; width:100px">
-                            @if (isset($_SESSION['laravel_session'])) 
-                            Tài Khoản
-                                <ul>
-                                    <li><a href="{{route('login')}}">Đăng Nhập</a></li>
-                                    <li><a href="{{route('register')}}">Đăng Kí</a></li>
-                                    
-                                </ul>
-                            @else
-                                @if(isset($_SESION['laraval_session']))
-                                Tài khoản
-                                @else
-                                {{$objUser->name}} 
-                                @endif
-                                <ul>
-                                    <li><a href="{{route('admin')}}">Đăng nhập admin</a></li>
-                                    <li><a href="{{route('login')}}">Cập Nhật</a></li>
-                                    <li><a href="{{route('logout')}}">Thoát</a></li>
-                                </ul>
-                            @endif
+							Tài Khoản
+							<ul>
+								<li><a href="#">Đăng Nhập</a></li>
+								<li><a href="#">Đăng Kí</a></li>
+								<li><a href="#"></a></li>
+							</ul>
 						</div>
                     </div>
                 </div>
@@ -122,17 +107,17 @@
         <div class="menu">
             <a href="index.html">
                 <div class="logo">
-                    <img src="{{asset('img/logos/logo1.png')}}" alt="">
+                    <img src="{{ asset('img/logo.png')}}" alt="">
                 </div>
             </a>
             <ul>
                 <li>
                     <a class="curent-page" href="{{route('Home')}}">Trang Chủ</a>
-                    {{-- <ul>
+                    <ul>
                         <li><a class="curent-page" href="index.html">Flip Slider</a></li>
                         <li><a href="index-1.html">Video Background</a></li>
                         <li><a href="index-2.html">Moving Image</a></li>
-                    </ul> --}}
+                    </ul>
                 </li>
                 <li>
                     <a href="{{route('Kind_of_room')}}">Phòng</a>
@@ -164,12 +149,7 @@
                     <a href="{{route('contact')}}">Liên Hệ</a>
                 </li>
                 <li>
-                    @if(isset($_SESION['laraval_session']))   
-                    <a href="{{route('login')}}"><span>BOOKED</span></a>
-                   
-                    @else
-                         <a href="{{route('booked', ['id_user' => $objUser->id])}}"><span>BOOKED</span></a>     
-                    @endif
+                    <a href="search.html"><span>book now</span></a>
                 </li>
             </ul>
         </div>
@@ -185,18 +165,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 text-center text-md-left">
-                    <img src="{{ asset('img/logos/logo1.png')}}" alt="">
-                    <p class="color-grey mt-4">Trịnh Văn Bô<br>Hà Nội</p>
+                    <img src="{{ asset('img/logo.png')}}" alt="">
+                    <p class="color-grey mt-4">Avenue Street 3284<br>Thessaloniki</p>
                 </div>
                 <div class="col-md-4 text-center text-md-left">
-                    <h6 class="color-white mb-3">Thông Tin</h6>
+                    <h6 class="color-white mb-3">information</h6>
                     <a href="tandc.html">terms &amp; conditions</a>
-                    <a href="services.html">Dịch Vụ</a>
-                    <a href="restaurant.html">Nhà Hàng</a>
+                    <a href="services.html">services</a>
+                    <a href="restaurant.html">restaurant</a>
+                    <a href="testimonials.html">testimonials</a>
+                    <a href="gallery.html">gallery &amp; images</a>
                 </div>
                 <div class="col-md-5 mt-4 mt-md-0 text-center text-md-left logos-footer">
-                    <h6 class="color-white mb-3">Giới Thiệu</h6>
-                    <p class="color-grey mb-4">Chào Mừng Đến Với Khách Sạn Sơn Péo</p>
+                    <h6 class="color-white mb-3">about us</h6>
+                    <p class="color-grey mb-4">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
                     <img src="{{ asset('img/logos/1.png')}}" alt="">
                     <img src="{{ asset('img/logos/2.png')}}" alt="">
                     <img src="{{ asset('img/logos/3.png')}}" alt="">
