@@ -35,7 +35,7 @@
 <div class="container text-center">
     <div class="row">
         <div class="col">
-            <img src="{{$room->image}}" class="img-fluid" alt="...">
+            <img src="{{ $room->image?''.Storage::url($room->image):'http://placehold.it/100x100' }}" class="img-fluid" alt="...">
             <p>Tên phòng: {{$room->name}} / Giá: {{$room->price}}</p>
             <p>Số Lượng: {{$list_booking->quantity}}</p>
             <p>Ngày đặt: {{$list_booking->checkin_date}}</p>
