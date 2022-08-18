@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\Service;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class List_bookingController extends Controller
 {
@@ -44,6 +45,6 @@ class List_bookingController extends Controller
     {
         $opj = new List_booking();
         $this->v['list_book'] = $opj->deleteBooking($id);
-        return back();
+        return Redirect::to('/');
     }
 }

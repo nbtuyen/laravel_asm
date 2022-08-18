@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/booking_details/{id}', 'List_bookingController@bookingDetail')->name('booking_details');
     Route::match(['get', 'post'], '/pay/{id}', 'PayController@index')->name('pay');
     Route::get('/pay_detail/{id}', 'PayController@detailPay')->name('pay_detail');
-    Route::get('/end','PayController@end')->name('end');
+    Route::get('/end', 'PayController@end')->name('end');
     //Route::match(['get', 'post'], '/bank/{id}', 'PayController@bank')->name('bank');
     Route::get('/bank/{id}', 'PayController@bank')->name('bank');
     Route::post('/bank/{id}', 'PayController@saveBank')->name('save_bank');
@@ -73,6 +73,7 @@ Route::middleware(['auth'])->group(function () {
     //list-booking
     Route::get('/admin/booking_list', 'List_bookingController@index')->name('list_booking');
     Route::get('/admin/booking_delete/{id}', 'List_bookingController@deleteBooking')->name('booking_delete');
+    Route::get('/booking_delete/{id}', 'List_bookingController@deleteBooking')->name('booking_delete');
 
 
     //blog
