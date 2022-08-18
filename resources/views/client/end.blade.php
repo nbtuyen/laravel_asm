@@ -35,7 +35,7 @@
 <div class="container text-center">
     <div class="row">
         <div class="col">
-            Địt mọe xong rồi <br>
+           Cảm ơn đã đạt phòng!<br>
             <button><a href="{{route("Home")}}">Trang chủ</a></button>
         </div>
     </div>

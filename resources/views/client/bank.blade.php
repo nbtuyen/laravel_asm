@@ -35,7 +35,8 @@
 <div class="container text-center">
     <div class="row">
         <div class="col">
-            M phải chuyển bố m trước bố m trc 99% bố m mới cho m đặt OK
+           Bạn hãy chuyển 50% số tiền cọc để đặt phòng theo:<br>
+           Mã đơn hàng _ Họ và tên
             <form action="" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
